@@ -1,7 +1,7 @@
 import HomePage from "../pages/HomePage";
 import Login from "../pages/Login";
 import Resgister from "../pages/Resgister";
-
+import DatVeDetail from "../pages/DatVeDetail";
 import { PATHS } from "../constants";
 
 export const Routers = [
@@ -19,5 +19,10 @@ export const Routers = [
     path: PATHS.RESGISTER,
     exexact: true,
     component: Resgister,
+  },
+  {
+    path: PATHS.DatVeDetail,
+    exexact: true,
+    component: DatVeDetail,
   },
 ];
