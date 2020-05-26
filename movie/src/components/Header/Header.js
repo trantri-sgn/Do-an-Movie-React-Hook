@@ -13,8 +13,10 @@ import {
   StyleHeaderRegister,
 } from "./Header.style";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 export default function Header() {
   const { Search } = Input;
+
   return (
     <StyleHeaderContent>
       <Col span={8}>

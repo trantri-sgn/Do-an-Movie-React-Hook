@@ -1,7 +1,6 @@
 import { SET_USER_INFOR } from "./actions";
-
 const initState = {
-  currentUser: "",
+  currentUser: null,
 };
 
 export default function UserReducer(state = initState, action) {

@@ -1,8 +1,11 @@
 import HomePage from "../pages/HomePage";
 import Login from "../pages/Login";
 import Resgister from "../pages/Resgister";
+import ListPhim from "../pages/ListPhim";
 import DatVeDetail from "../pages/DatVeDetail";
+import MuaVe from "../pages/MuaVe";
 import { PATHS } from "../constants";
+import Muave from "../pages/MuaVe";
 
 export const Routers = [
   {
@@ -12,17 +15,27 @@ export const Routers = [
   },
   {
     path: PATHS.LOGIN,
-    exact: true,
+    exact: false,
     component: Login,
   },
   {
     path: PATHS.RESGISTER,
-    exexact: true,
+    exexact: false,
     component: Resgister,
   },
   {
+    path: PATHS.ListPhim,
+    exexact: false,
+    component: ListPhim,
+  },
+  {
     path: PATHS.DatVeDetail,
-    exexact: true,
+    exexact: false,
     component: DatVeDetail,
+  },
+  {
+    path: PATHS.MuaVe,
+    exexact: false,
+    component: Muave,
   },
 ];
