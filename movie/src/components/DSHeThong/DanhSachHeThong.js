@@ -5,6 +5,7 @@ import { get } from "lodash";
 import { StyleHeaderDetailRow } from "./DanhSach.style";
 import { asyncGetLogo } from "../../store/danhSachPhimDC/actions";
 import { render } from "react-dom";
+import { useParams, Link } from "react-router-dom";
 import dayjs from "dayjs";
 export default function DanhSachHeThong() {
   const thongTin = useSelector((state) => state.DC.thongTin);
@@ -12,9 +13,7 @@ export default function DanhSachHeThong() {
   console.log("thongTin", thongTin);
   console.log("maHeThongcgv", get(maHeThong[0], "tenHeThongRap"));
   console.log("maHeThongcgddv", get(maHeThong[1], "tenHeThongRap"));
-  const ma = get(maHeThong[0], "maHeThongRap");
-  const logo = get(maHeThong[0], "logo");
-  const logo1 = get(maHeThong[1], "logo");
+
   let mangmoi = maHeThong.map((e, index) => {
     return e.cumRapChieu;
     let aas = mangmoi.map((e, index) => {
@@ -23,6 +22,8 @@ export default function DanhSachHeThong() {
     console.log("aas", aas);
   });
   console.log("mangmoi", mangmoi);
+  const hashTable = {};
+  console.log("fdfd", hashTable);
 
   return (
     <div>
@@ -32,8 +33,8 @@ export default function DanhSachHeThong() {
             <Nav variant="pills" className="flex-column">
               {maHeThong.map((re) => {
                 return (
-                  <Nav.Item>
-                    <Nav.Link key={re.maHeThongRap} eventKey={re.maHeThongRap}>
+                  <Nav.Item key={re.maHeThongRap}>
+                    <Nav.Link eventKey={re.maHeThongRap}>
                       {re.tenHeThongRap}
                     </Nav.Link>
                   </Nav.Item>
@@ -49,12 +50,34 @@ export default function DanhSachHeThong() {
                     {re.cumRapChieu.map((cum) => {
                       return (
                         <>
-                          <div>
+                          <div key={cum.maCumRap}>
                             <h1>{cum.tenCumRap}</h1>
                           </div>
                           <div>
                             <Container>
                               <Row>
+                                {/* {(cum.lichChieuPhim.map((lich) => {
+                                  const { ngayChieuGioChieu, ...rest } = lich;
+
+                                  const gioChieu = dayjs(
+                                    new Date(ngayChieuGioChieu)
+                                  ).format("hh:mm A");
+                                  const ngayChieu = dayjs(
+                                    new Date(ngayChieuGioChieu)
+                                  ).format("DD/MM/YYYY");
+                                  if (hashTable[ngayChieu]) {
+                                    hashTable[ngayChieu] = [
+                                      ...hashTable[ngayChieu],
+                                      { ...rest, gioChieu },
+                                    ];
+                                  } else {
+                                    hashTable[ngayChieu] = [
+                                      { ...rest, gioChieu },
+                                    ];
+                                  }
+                                }) &&
+                                  console.log("hashtable", hashTable)) ||
+                                  []} */}
                                 {cum.lichChieuPhim.map((lich) => {
                                   const gioChieu = dayjs(
                                     new Date(lich.ngayChieuGioChieu)
@@ -66,14 +89,18 @@ export default function DanhSachHeThong() {
 
                                   return (
                                     <>
-                                      <Col xs lg="2" key={ngayChieu}>
-                                        <div>
+                                      <Col xs lg="2" key={lich.maLichChieu}>
+                                        <div key={lich.maLichChieu}>
                                           <h6>{ngayChieu}</h6>
                                         </div>
                                         <div>
-                                          <Button variant="outline-primary">
-                                            {gioChieu}
-                                          </Button>
+                                          <Link
+                                            to={`/muave/${lich.maLichChieu}`}
+                                          >
+                                            <Button variant="outline-primary">
+                                              {gioChieu}
+                                            </Button>
+                                          </Link>
                                         </div>
                                       </Col>
                                     </>
@@ -82,6 +109,7 @@ export default function DanhSachHeThong() {
                               </Row>
                             </Container>
                           </div>
+                          <div></div>
                         </>
                       );
                     })}

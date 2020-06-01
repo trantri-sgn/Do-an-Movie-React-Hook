@@ -2,13 +2,14 @@ import { SET_LIST_DC } from "./actions";
 import { GET_LICH_BY_ID } from "./actions";
 import { GET_He_Thong_Rap_Chieu } from "./actions";
 import { GET_Ma_Lich_Chieu } from "./actions";
-
-import { GET_Thong_Tin_He_Thong_Rap } from "./actions";
+import { GET_Danh_Sach_Ghe } from "./actions";
+import { GET_Thong_Tin_Phim_Trong_Rap } from "./actions";
 const intState = {
   listNewsItem: [],
   thongTin: "",
   listHeThongRapChieu: [],
   listLogo: [],
+  listDanhSachGHe: [],
 };
 
 export default function DCReducer(state = intState, action) {
@@ -36,11 +37,17 @@ export default function DCReducer(state = intState, action) {
       return {
         ...state,
       };
-    case GET_Thong_Tin_He_Thong_Rap:
-      const neRE = action.payload.trine;
+    case GET_Thong_Tin_Phim_Trong_Rap:
+      const thongTinPhimTrongRap = action.payload.thongTinPhim;
       return {
         ...state,
-        listLogo: [...state.listLogo, ...neRE],
+        thongTinPhimTrongRap,
+      };
+    case GET_Danh_Sach_Ghe:
+      const danhSachGhe = action.payload.danhSachGhe;
+      return {
+        ...state,
+        listDanhSachGHe: [...danhSachGhe],
       };
     default:
       return state;

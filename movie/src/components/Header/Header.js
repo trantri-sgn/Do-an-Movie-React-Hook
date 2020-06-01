@@ -1,7 +1,7 @@
 import React from "react";
 
 import { Col, Input } from "antd";
-
+import "./Header.css";
 import { PATHS } from "../../constants";
 import {
   StyleHeaderContent,
@@ -14,9 +14,19 @@ import {
 } from "./Header.style";
 import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
+
+import { actLogOut } from "../../store/auth/actions";
+import { useDispatch } from "react-redux";
+import { UserOutlined } from "@ant-design/icons";
 export default function Header() {
   const { Search } = Input;
+  const dispatch = useDispatch();
+  const TTUser = useSelector((state) => state.User.TTUSER);
+  console.log("TTUser", TTUser);
 
+  function handleLogOut() {
+    dispatch(actLogOut());
+  }
   return (
     <StyleHeaderContent>
       <Col span={8}>
@@ -44,11 +54,27 @@ export default function Header() {
       </Col>
       <Col span={8}>
         <StyleHeaderMember>
-          <StyleHeaderLogin to={PATHS.LOGIN}> Đăng Nhập</StyleHeaderLogin>
-          <p>|</p>
-          <StyleHeaderRegister to={PATHS.RESGISTER}>
-            Đăng Ký
-          </StyleHeaderRegister>
+          {TTUser ? (
+            <div className="wrapper-user">
+              <Link className="user-header">
+                <span>
+                  <UserOutlined style={{ fontSize: "32px" }} />
+                </span>
+                <span style={{ fontSize: "32px" }}>{TTUser}</span>
+              </Link>
+              <div onClick={handleLogOut} className="logout">
+                LogOut
+              </div>
+            </div>
+          ) : (
+            <>
+              <StyleHeaderLogin to={PATHS.LOGIN}> Đăng Nhập</StyleHeaderLogin>
+              <p>|</p>
+              <StyleHeaderRegister to={PATHS.RESGISTER}>
+                Đăng Ký
+              </StyleHeaderRegister>
+            </>
+          )}
         </StyleHeaderMember>
       </Col>
     </StyleHeaderContent>
