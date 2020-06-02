@@ -1,5 +1,5 @@
 import axios from "axios";
-
+import { Storage } from "../helpers";
 const BASE_URL = "http://movie0706.cybersoft.edu.vn";
 
 const api = {
@@ -17,7 +17,7 @@ const api = {
       baseURL: BASE_URL,
       headers: {
         "Content-Type": "application/json",
-        Authorization: "Bearer my-token",
+        Authorization: Storage.getToken(),
       },
     });
   },

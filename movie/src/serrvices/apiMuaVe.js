@@ -1,12 +1,12 @@
 import { api } from "./index";
 
 const thongTinMaLichChieuService = {
-  getMaLichChieu({ maLichChieu }) {
-    console.log("aa", maLichChieu);
+  getMaLichChieu({ malichchieu }) {
+    console.log("aa", malichchieu);
     return api
       .call()
       .get(
-        `/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${maLichChieu.malichchieu}`
+        `/api/QuanLyDatVe/LayDanhSachPhongVe?MaLichChieu=${malichchieu.malichchieu}`
       );
   },
 };

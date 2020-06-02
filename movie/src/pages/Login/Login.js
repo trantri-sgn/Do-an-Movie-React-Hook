@@ -7,7 +7,6 @@ import {
   StyleContentBody,
   StyleContentTitle,
   StyleH,
-  StyleA,
 } from "../Login/Login.style";
 
 import { Link } from "react-router-dom";

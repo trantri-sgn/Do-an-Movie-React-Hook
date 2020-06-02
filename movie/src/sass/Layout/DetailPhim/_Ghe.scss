@@ -1,0 +1,33 @@
+td{
+    width: 40px;
+    font-weight: 600;
+    font-size: 1em;
+    padding-top: 7px;
+    height: 24px;
+    color: #fff;
+    input{
+        width: 13px;
+        margin-right: 14px;
+        cursor: pointer;
+       
+        }
+        .seats{
+            border: 1px solid red;
+            background-color: yellow;
+            
+                &::before{
+                    margin-bottom: 10px;
+                    content: "";
+                    width: 25px;
+                    height: 18px;
+                    border-radius: 5px;
+                    display: inline-block;
+                    vertical-align: middle;
+                    text-align: center;
+                    border: 3px solid #ff9800;
+                    box-shadow: 0px 1px 0px 0px rgba(255,255,255,.8);
+                    background-color: #fff;
+            }
+    }
+   
+    }

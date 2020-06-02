@@ -80,19 +80,12 @@ export default function DatVeDetail() {
       console.log("res", res);
     });
   }, [maPhim]);
-  useEffect(() => {
-    console.log("phimId=", maPhim);
-    dispatch(asyncGetLogo({})).then((res) => {
-      console.log("res", res);
-    });
-  }, []);
 
   const thongTin = useSelector((state) => state.DC.thongTin);
   console.log("thongTin", thongTin);
   const maHeThong = useSelector((state) => state.DC.listHeThongRapChieu);
   console.log("maHeThong 1111", maHeThong);
 
-  console.log("maHeThong", get(maHeThong[0], "cumRapChieu[0]"));
   const tddd = useSelector((state) => state.DC.listHeThongRapChieu.cumRapChieu);
   console.log("tddd", tddd);
   //
