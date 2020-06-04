@@ -74,17 +74,20 @@ export default function Muave() {
       <div className="container">
         <div className="row">
           <div className="col-8  text-center">
-            <div className="manHinh mt-3">Màn hình</div>
+            <img src="../img/screen-thumb.png" alt="" />
             <div className="mt-3 text-center">{renderDanhSachGhe()}</div>
           </div>
           <div className="col-4">
-            <h3 className="mt-3 text-center">Thông tin đặt vé</h3>
+            <h3 className="mt-3 text-center text-danger">Thông tin đặt vé</h3>
             <table className="table">
               <thead>
                 <tr>
+                  <th className="bold" style={{ whiteSpace: "nowrap" }}>
+                    Tên Phim:
+                  </th>
                   <th
                     colSpan="2"
-                    className="text-success text-center display-4"
+                    className="text-primary text-center"
                     align="center"
                   >
                     {thongTinPhim && thongTinPhim.tenPhim}
@@ -93,37 +96,37 @@ export default function Muave() {
                 <tr>
                   <th
                     colSpan="2"
-                    className="text-success text-center display-4"
+                    className="text-success text-center "
                     align="center"
                   >
                     <img
                       src={thongTinPhim && thongTinPhim.hinhAnh}
-                      width={100}
-                      height={100}
+                      width={150}
+                      height={250}
                     />
                   </th>
                 </tr>
                 <tr>
                   <th className="bold" style={{ whiteSpace: "nowrap" }}>
-                    Tên cụm rạp
+                    Tên Cụm Rạp:
                   </th>
-                  <th className="text-success" style={{ whiteSpace: "nowrap" }}>
+                  <th className="text-white" style={{ whiteSpace: "nowrap" }}>
                     {thongTinPhim && thongTinPhim.tenCumRap}
                   </th>
                 </tr>
                 <tr>
                   <th className="bold" style={{ whiteSpace: "nowrap" }}>
-                    Rạp
+                    Rạp:
                   </th>
-                  <th className="text-success">
+                  <th className="text-white">
                     {thongTinPhim && thongTinPhim.tenRap}
                   </th>
                 </tr>
                 <tr>
                   <th className="bold" style={{ whiteSpace: "nowrap" }}>
-                    Ngày giờ chiếu
+                    Ngày Giờ Chiếu:
                   </th>
-                  <th className="text-success">
+                  <th className="text-white">
                     {thongTinPhim && thongTinPhim.ngayChieu} -
                     {thongTinPhim && thongTinPhim.gioChieu}
                   </th>
@@ -133,18 +136,18 @@ export default function Muave() {
                     className="bold"
                     style={{ whiteSpace: "nowrap", verticalAlign: "top" }}
                   >
-                    Ghế đang chọn
+                    Ghế Đang Chọn:
                   </th>
-                  <th className="text-success">{renderGhe()}</th>
+                  <th className="text-white">{renderGhe()}</th>
                 </tr>
                 <tr>
                   <th
                     className="bold"
                     style={{ whiteSpace: "nowrap", verticalAlign: "top" }}
                   >
-                    Tổng tiền
+                    Tổng Tiền:
                   </th>
-                  <th className="text-success">
+                  <th className="text-white">
                     {gheChon
                       .reduce((tongTien, ghe) => {
                         return (tongTien += ghe.giaVe);
@@ -156,7 +159,7 @@ export default function Muave() {
                 <tr>
                   <th colSpan="2">
                     <button className="btn btn-danger" onClick={datVe}>
-                      Đặt vé
+                      Đặt Vé
                     </button>
                   </th>
                 </tr>

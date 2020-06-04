@@ -1,0 +1,47 @@
+.content {
+  .theaters {
+    // background-color: rgba(252, 247, 247, 0.959);
+    // background-color: transparent;
+    height: 150px;
+    .nav-item {
+      height: 75px;
+    }
+    .nav-link {
+      height: 50px;
+      text-align: center;
+      font-size: 25px;
+      color: gray;
+    }
+    .nav-pills .nav-link.active,
+    .nav-pills .show > .nav-link {
+      color: black;
+      background-color: transparent;
+    }
+  }
+  .showtimes {
+    .showtimes-content {
+      // background-color: rgba(252, 247, 247, 1);
+      // background-color: transparent;
+      transform: translateY(-50px);
+      h1 {
+        text-align: center;
+        padding-top: 50px;
+        color:black;
+      }
+      .showtimes-item {
+        transform: translate(40px, -90px);
+        .date {
+          h6 {
+            font-weight: 700;
+            transform: translateX(-15px);
+            font-size: 18px;
+            color: red;
+          }
+        }
+        .time {
+          transform: translateY(-30px);
+        }
+      }
+    }
+  }
+}

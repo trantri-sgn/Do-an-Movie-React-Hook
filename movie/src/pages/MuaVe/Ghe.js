@@ -36,6 +36,8 @@ export default function Ghe({ ghe, index, setGheDuocChon }) {
     }
     return (
       <>
+
+
         <button
           onClick={chonGhe}
           className={classTrangThaiGhe}
@@ -43,8 +45,15 @@ export default function Ghe({ ghe, index, setGheDuocChon }) {
         >
           {tenGhe}
         </button>
-        {index % 16 === 0 ? <br /> : ""}
+        {index % 12 === 0 ? <br /> : ""}
+
       </>
+
+
+
+
+
+
     );
   }
   // chon ghe

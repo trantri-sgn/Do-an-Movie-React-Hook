@@ -1,0 +1,70 @@
+
+.Member {
+  font-size: 15px;
+  padding-right: 130px;
+  transition: all 1s;
+  color: #a0a3a7;
+  display: flex;
+
+  .login {
+    margin-right: 5px;
+    color: #a0a3a7;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+      color: #f26b38;
+    }
+  }
+  .register {
+    color: #a0a3a7;
+    margin-left: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    &:hover {
+      color: #f26b38;
+    }
+  }
+}
+.menu {
+  background-color: #7b461c;
+  height: 50px;
+
+  .navbar-collapse {
+    justify-content: center;
+    .nav-item {
+      margin: 0 10px;
+      border-left: 1 solid white;
+
+      .nav-link {
+        color: white;
+        font-size: 14px;
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        cursor: pointer;
+        &:hover {
+          color: #ea5f2d;
+          transition: all 1s;
+        }
+      }
+      .nav-link span {
+        font-weight: normal;
+        margin-right: 40px;
+        color: white;
+        &:hover {
+          color: white;
+        }
+      }
+      .dropdown-menu {
+        background-color: black;
+        .dropdown-item {
+          color: white;
+          &:hover {
+            color: #ea5f2d;
+            background-color: black;
+            transition: all 1s;
+          }
+        }
+      }
+    }
+  }
+}

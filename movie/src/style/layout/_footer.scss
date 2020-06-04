@@ -1,0 +1,86 @@
+.footer__all {
+  background: #101010;
+  height: 480px;
+  .container {
+   transform: translateY(100px);
+    .footer__items {
+      padding-right: 95px;
+      margin-right: 20px;
+      h6 {
+        font-size: 20px;
+        letter-spacing: 1.5px;
+        color: #f26b38;
+        padding-bottom: 20px;
+      }
+
+      .icon-item {
+        list-style: none;
+        a {
+          font-size: 11px;
+          letter-spacing: 1.5px;
+          color: #686f7a;
+          text-decoration: none;
+          line-height: 30px;
+          cursor: pointer;
+          &:hover {
+            color: #f26b38;
+            transition: all 0.5s;
+          }
+        }
+      }
+
+      .item-one {
+        font-size: 30px;
+        color: #686f7a;
+        a {
+          padding-right: 10px;
+          transition: all 0.5s;
+          cursor: pointer;
+        }
+        .facebook {
+          &:hover {
+            color: #337ab7;
+          }
+        }
+        .youtube {
+          &:hover {
+            color: red;
+          }
+        }
+        .instagram {
+          &:hover {
+            color: #f4c150;
+          }
+        }
+      }
+      .item-two {
+        font-size: 30px;
+        color: #686f7a;
+        i {
+          padding-right: 10px;
+          transition: all 0.5s;
+          cursor: pointer;
+          &:hover {
+            color: #f26b38;
+          }
+        }
+      }
+    }
+  }
+}
+.footer__end {
+  margin-top: 30px;
+  padding: 20px;
+  text-align: center;
+  border-top: 1px solid #686f7a;
+  letter-spacing: 1px;
+  color: #686f7a;
+  a {
+    color: #686f7a;
+    text-decoration: none;
+    &:hover {
+      color: #f26b38;
+      transition: all 0.5s;
+    }
+  }
+}

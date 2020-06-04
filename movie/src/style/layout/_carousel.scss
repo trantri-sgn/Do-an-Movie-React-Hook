@@ -1,0 +1,19 @@
+.carousel-content {
+  .carousel {
+    .carousel-indicators li {
+      width: 10px;
+      height: 10px;
+      background-color: transparent;
+      border: 1px solid white;
+      border-radius: 50%;
+      opacity: 1;
+      justify-content: center;
+    }
+    .carousel-indicators li.active {
+      width: 12px;
+      height: 12px;
+      background-color: #ea5f2d;
+      border: transparent;
+    }
+  }
+}

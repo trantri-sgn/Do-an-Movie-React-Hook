@@ -4,6 +4,8 @@ import { useParams, Link } from "react-router-dom";
 import { get } from "lodash";
 import { Breadcrumb, Layout, Menu } from "antd";
 import { Tab, Row, Col, Nav } from "react-bootstrap";
+
+import dayjs from "dayjs";
 // import { phimnene } from "../../helpers";
 import {
   UserOutlined,
@@ -17,99 +19,66 @@ import {
 } from "../../store/danhSachPhimDC/actions";
 import { thongTinLichChieuService } from "../../serrvices";
 
-//
-import {
-  StyleDatVeMain,
-  StyleDatVeUL,
-  StyleDatVeLi,
-  StyleDatVeLogo,
-} from "./DatVeDetail.style";
-import { HeaderDetailPhim } from "../../components/HeaderDetailPhim";
 import DanhSachHeThong from "../../components/DSHeThong/DanhSachHeThong";
 export default function DatVeDetail() {
-  // const listPhimDC = useSelector((state) => state.DC.listNewsItem.maPhim);
 
-  // function findPhimByIdMaPhim(maPhim) {
-  //   let findData = listPhimDC.find((phim) => {
-  //     return phim.maPhim === parseInt(maPhim);
-  //   });
-
-  //   //
-
-  //   return findData;
-  // }
-  // // const phim = phimnene();
-  // const { id } = useParams();
-  // const dispatch = useDispatch();
-  // // const phim = findPhimByIdMaPhim(id);
-
-  // //
-  // useEffect(() => {
-  //   console.log("phimId = ");
-
-  //   // dispatch(asyncGetDanhSachLichChieuPhimByID({ id })).then((res) => {
-  //   //   console.log("res", res);
-  //   //s });
-  // }, []);
-
-  // // if (!phim) {
-  // //   alert("phim k cos");
-  // return (
-  //   <div style={{ padding: "20px" }}>
-  //     <Breadcrumb>
-  //       <Breadcrumb.Item>
-  //         <Link to={PATHS.HOMEPAGE}>
-  //           <HomeOutlined />
-  //         </Link>
-  //       </Breadcrumb.Item>
-
-  //       <Breadcrumb.Item>Detail</Breadcrumb.Item>
-  //     </Breadcrumb>
-  //   </div>
-  // );
 
   const { id } = useParams();
-  console.log("ddd", useParams);
+
 
   const dispatch = useDispatch();
-  console.log("id", id);
+
   const maPhim = parseInt(id);
   useEffect(() => {
     console.log("phimId=", maPhim);
     dispatch(asyncGetDanhSachLichChieuPhimByID({ maPhim })).then((res) => {
-      console.log("res", res);
+
     });
   }, [maPhim]);
 
   const thongTin = useSelector((state) => state.DC.thongTin);
-  console.log("thongTin", thongTin);
+
   const maHeThong = useSelector((state) => state.DC.listHeThongRapChieu);
-  console.log("maHeThong 1111", maHeThong);
+
 
   const tddd = useSelector((state) => state.DC.listHeThongRapChieu.cumRapChieu);
-  console.log("tddd", tddd);
+
   //
   const { SubMenu } = Menu;
   const { Header, Content, Footer, Sider } = Layout;
-
+  const gioChieu = dayjs(
+    new Date(thongTin.ngayKhoiChieu)
+  ).format("hh:mm A");
+  const ngayChieu = dayjs(
+    new Date(thongTin.ngayKhoiChieu)
+  ).format("DD/MM/YYYY");
+  console.log("ngayChieu");
   return (
     <>
       <div>
         <div className="container">
           <div className="row">
-            <div className="col-4">
+            <div className="col-6 item">
               <div className="hinhAnh">
-                <img src={thongTin.hinhAnh} width="200" height="300" />
+                <img src={thongTin.hinhAnh} width="300" height="500" />
               </div>
             </div>
-            <div className="col-8">
+            <div className="col-6">
               <div className="thongTinPhim">
-                <p className="text-success">{thongTin.tenPhim}</p>
-                <p>{thongTin.moTa}</p>
+                <h3 className="display-4">{thongTin.tenPhim}</h3>
+                <p>Nội Dung: <span>{thongTin.moTa}</span></p>
+                <p>Ngày Chiếu: <span>{ngayChieu}</span></p>
+                <p>Giờ Chiếu: <span>{gioChieu}</span></p>
+
               </div>
             </div>
+            <div className="col-3"></div>
           </div>
-          <DanhSachHeThong />
+          <div className="danhSachHeThong">
+            <h6 className="text-center display-4">Lịch Chiếu</h6>
+            <DanhSachHeThong />
+
+          </div>
         </div>
       </div>
     </>

@@ -1,126 +1,84 @@
-import React from "react";
-import { Row } from "antd";
-import {
-  StyleFooterAll,
-  StyleFooterContainer,
-  StyleFooterItems,
-  StyleFooterH6,
-  StyleFooterUL,
-  StyleFooterA,
-  StyleFooterULItem1,
-  StyleFooterEnd,
-  StyleFooterEndA,
-} from "./Footer.style";
-export default function Footer() {
-  return (
-    <StyleFooterAll>
-      <StyleFooterContainer>
-        <Row>
-          <StyleFooterItems>
-            <StyleFooterH6>GIỚI THIỆU</StyleFooterH6>
-            <StyleFooterUL>
-              <li>
-                <StyleFooterA href="#">
-                  <i className="fa fa-angle-double-right"></i>VỀ CHÚNG TÔI
-                </StyleFooterA>
-              </li>
-              <li>
-                <StyleFooterA href="#">
-                  <i className="fa fa-angle-double-right"></i>THOẢ THUẬN SỬ DỤNG
-                </StyleFooterA>
-              </li>
-              <li>
-                <StyleFooterA href="#">
-                  <i className="fa fa-angle-double-right"></i>QUY CHẾ HOẠT ĐỘNG
-                </StyleFooterA>
-              </li>
-              <li>
-                <StyleFooterA href="#">
-                  <i className="fa fa-angle-double-right"></i>CHÍNH SÁCH BẢO MẬT
-                </StyleFooterA>
-              </li>
-            </StyleFooterUL>
-          </StyleFooterItems>
-          <StyleFooterItems>
-            <StyleFooterH6>GÓC ĐIỆN ẢNH</StyleFooterH6>
-            <StyleFooterUL>
-              <li>
-                <StyleFooterA href="#">
-                  <i className="fa fa-angle-double-right"></i>THỂ LOẠI PHIM
-                </StyleFooterA>
-              </li>
-              <li>
-                <StyleFooterA href="#">
-                  <i className="fa fa-angle-double-right"></i>BÌNH LUẬN PHIM
-                </StyleFooterA>
-              </li>
-              <li>
-                <StyleFooterA href="#">
-                  <i className="fa fa-angle-double-right"></i>BLOG ĐIỆN ẢNH
-                </StyleFooterA>
-              </li>
-              <li>
-                <StyleFooterA href="#">
-                  <i className="fa fa-angle-double-right"></i>PHIM HAY THÁNG
-                </StyleFooterA>
-              </li>
-            </StyleFooterUL>
-          </StyleFooterItems>
-          <StyleFooterItems>
-            <StyleFooterH6>HỖ TRỢ</StyleFooterH6>
-            <StyleFooterUL>
-              <li>
-                <StyleFooterA href="#">
-                  <i className="fa fa-angle-double-right"></i>GÓP Ý
-                </StyleFooterA>
-              </li>
-              <li>
-                <StyleFooterA href="#">
-                  <i className="fa fa-angle-double-right"></i>SALE & SERVICES
-                </StyleFooterA>
-              </li>
-              <li>
-                <StyleFooterA href="#">
-                  <i className="fa fa-angle-double-right"></i>RẠP / GIÁ VÉ
-                </StyleFooterA>
-              </li>
-              <li>
-                <StyleFooterA href="#">
-                  <i className="fa fa-angle-double-right"></i>TUYỂN DỤNG
-                </StyleFooterA>
-              </li>
-            </StyleFooterUL>
-          </StyleFooterItems>
-          <StyleFooterItems>
-            <StyleFooterH6>KẾT NỐI MOVIE</StyleFooterH6>
-            <StyleFooterULItem1>
-              <StyleFooterA className="facebook">
-                <i className="fab fa-facebook-square"></i>
-              </StyleFooterA>
-              <StyleFooterA className="youtube">
-                <i className="fab fa-youtube"></i>
-              </StyleFooterA>
-              <StyleFooterA className="instagram">
-                <i className="fab fa-instagram"></i>
-              </StyleFooterA>
-            </StyleFooterULItem1>
+import React, { Component } from 'react'
 
-            <StyleFooterH6>DOWNLOAD APP</StyleFooterH6>
-            <StyleFooterULItem1>
-              <StyleFooterA className="apple-google">
-                <i className="fab fa-apple"></i>
-                <i className="fab fa-google-play"></i>
-              </StyleFooterA>
-            </StyleFooterULItem1>
-          </StyleFooterItems>
-        </Row>
-      </StyleFooterContainer>
-      <StyleFooterEnd>
-        <p>
-          2017 © Movie Star /{" "}
-          <StyleFooterEndA href="#">Web design by Klever media</StyleFooterEndA>
-        </p>
-      </StyleFooterEnd>
-    </StyleFooterAll>
-  );
+export default class Footer extends Component {
+  render() {
+    return (
+      <div className="footer__all">
+        <div className="container">
+          <div className="row">
+            <div className="footer__items">
+              <h6>GIỚI THIỆU</h6>
+              <ul className="icon-item">
+                <li>
+                  <a href="#"><i class="fa fa-angle-double-right"></i>VỀ CHÚNG TÔI</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-angle-double-right"></i>THOẢ THUẬN SỬ DỤNG</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-angle-double-right"></i>QUY CHẾ HOẠT ĐỘNG</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-angle-double-right"></i>CHÍNH SÁCH BẢO MẬT</a>
+                </li>
+              </ul>
+            </div>
+            <div className="footer__items">
+              <h6>GÓC ĐIỆN ẢNH</h6>
+              <ul className="icon-item">
+                <li>
+                  <a href="#"><i class="fa fa-angle-double-right"></i>THỂ LOẠI PHIM</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-angle-double-right"></i>BÌNH LUẬN PHIM</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-angle-double-right"></i>BLOG ĐIỆN ẢNH</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-angle-double-right"></i>PHIM HAY THÁNG</a>
+                </li>
+              </ul>
+            </div>
+            <div className="footer__items">
+              <h6>HỖ TRỢ</h6>
+              <ul className="icon-item">
+                <li>
+                  <a href="#"><i class="fa fa-angle-double-right"></i>GÓP Ý</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-angle-double-right"></i>SALE & SERVICES</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-angle-double-right"></i>RẠP / GIÁ VÉ</a>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-angle-double-right"></i>TUYỂN DỤNG</a>
+                </li>
+              </ul>
+            </div>
+            <div className="footer__items">
+
+              <h6>KẾT NỐI MOVIE</h6>
+              <ul className="item-one">
+                <a className="facebook"><i class="fab fa-facebook-square"></i></a>
+                <a className="youtube"><i class="fab fa-youtube"></i></a>
+                <a className="instagram"><i class="fab fa-instagram"></i></a>
+              </ul>
+
+              <h6>DOWNLOAD APP</h6>
+              <ul className="item-two">
+                <a className="apple-google"><i class="fab fa-apple"></i><i class="fab fa-google-play"></i></a>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div className="footer__end">
+          <p>2017 © Movie Star / <a href="#">Web design by Klever media</a></p>
+        </div>
+      </div>
+
+    )
+  }
 }
+
