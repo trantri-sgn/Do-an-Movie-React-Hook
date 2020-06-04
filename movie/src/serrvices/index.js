@@ -9,4 +9,6 @@ export { default as thongTinLichChieuService } from "./apiLayThongTinLichChieu";
 export { default as thongTinMaLichChieuService } from "./apiMuaVe";
 
 export { default as thongTinHeThongRapService } from "./apiThongTinHeThongRap";
+
+export { default as thongTinTaiKhoanService } from "./apiThongTinTaiKhoan";
 export { default as DatVEService } from "./apiDatVE";

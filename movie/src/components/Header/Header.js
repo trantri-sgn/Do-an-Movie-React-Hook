@@ -56,7 +56,7 @@ export default function Header() {
         <StyleHeaderMember>
           {TTUser ? (
             <div className="wrapper-user">
-              <Link className="user-header">
+              <Link to={PATHS.THONGTINTAIKHOAN} className="user-header">
                 <span>
                   <UserOutlined style={{ fontSize: "32px" }} />
                 </span>

@@ -5,9 +5,11 @@ import { actSetGheDcChon } from "../../store/datVe/action";
 import { asyncGetDanhSachGhe } from "../../store/danhSachPhimDC/actions";
 import { asyncPostDatVe } from "../../store/datVe/action";
 import { StorageUser } from "../../helpers";
-
+import { useAuth } from "../../helpers";
 import Ghe from "./Ghe";
+
 export default function Muave() {
+  useAuth();
   const malichchieu = useParams();
   const dispatch = useDispatch();
   console.log("maLichChieu", malichchieu);

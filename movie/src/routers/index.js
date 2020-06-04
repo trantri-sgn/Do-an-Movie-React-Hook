@@ -4,6 +4,7 @@ import Resgister from "../pages/Resgister";
 import ListPhim from "../pages/ListPhim";
 import DatVeDetail from "../pages/DatVeDetail";
 import MuaVe from "../pages/MuaVe";
+import ThongTinTaiKhoan from "../pages/ThongTinTaiKhoan";
 import { PATHS } from "../constants";
 import Muave from "../pages/MuaVe";
 
@@ -22,6 +23,11 @@ export const Routers = [
     path: PATHS.RESGISTER,
     exexact: false,
     component: Resgister,
+  },
+  {
+    path: PATHS.ThongTinTaiKhoan,
+    exexact: false,
+    component: ThongTinTaiKhoan,
   },
   {
     path: PATHS.ListPhim,

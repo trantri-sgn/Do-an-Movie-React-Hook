@@ -5,8 +5,9 @@ import { get } from "lodash";
 import { StyleHeaderDetailRow } from "./DanhSach.style";
 import { asyncGetLogo } from "../../store/danhSachPhimDC/actions";
 import { render } from "react-dom";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link, useHistory } from "react-router-dom";
 import dayjs from "dayjs";
+
 export default function DanhSachHeThong() {
   const thongTin = useSelector((state) => state.DC.thongTin);
   const maHeThong = useSelector((state) => state.DC.listHeThongRapChieu);
@@ -14,6 +15,7 @@ export default function DanhSachHeThong() {
   console.log("maHeThongcgv", get(maHeThong[0], "tenHeThongRap"));
   console.log("maHeThongcgddv", get(maHeThong[1], "tenHeThongRap"));
 
+  const history = useHistory();
   let mangmoi = maHeThong.map((e, index) => {
     return e.cumRapChieu;
     let aas = mangmoi.map((e, index) => {
