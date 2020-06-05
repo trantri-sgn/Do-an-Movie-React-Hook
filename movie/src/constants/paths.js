@@ -5,6 +5,7 @@ const PATHS = {
   DatVeDetail: "/datve/:id",
   ListPhim: "/listphim",
   MuaVe: "/muave/:malichchieu",
+  SearchPhim: "/search",
 };
 
 export default PATHS;

@@ -1,5 +1,5 @@
 import style from "styled-components";
-import { Row, Col } from "antd";
+import { Col } from "antd";
 
 export const StyleListPhim = style(Col)`
 max-width: 940px;

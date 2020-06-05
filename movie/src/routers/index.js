@@ -3,7 +3,7 @@ import Login from "../pages/Login";
 import Resgister from "../pages/Resgister";
 import ListPhim from "../pages/ListPhim";
 import DatVeDetail from "../pages/DatVeDetail";
-import MuaVe from "../pages/MuaVe";
+import SearchPhim from "../pages/SearchPhim";
 import { PATHS } from "../constants";
 import Muave from "../pages/MuaVe";
 
@@ -37,5 +37,10 @@ export const Routers = [
     path: PATHS.MuaVe,
     exexact: false,
     component: Muave,
+  },
+  {
+    path: PATHS.SearchPhim,
+    exexact: false,
+    component: SearchPhim,
   },
 ];

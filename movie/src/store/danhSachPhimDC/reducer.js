@@ -1,15 +1,19 @@
-import { SET_LIST_DC } from "./actions";
-import { GET_LICH_BY_ID } from "./actions";
-import { GET_He_Thong_Rap_Chieu } from "./actions";
-import { GET_Ma_Lich_Chieu } from "./actions";
-import { GET_Danh_Sach_Ghe } from "./actions";
-import { GET_Thong_Tin_Phim_Trong_Rap } from "./actions";
+import {
+  SET_LIST_DC,
+  GET_LICH_BY_ID,
+  GET_Ma_Lich_Chieu,
+  GET_He_Thong_Rap_Chieu,
+  GET_Danh_Sach_Ghe,
+  GET_Thong_Tin_Phim_Trong_Rap,
+  SET_SEARCH_RESULT,
+} from "./actions";
 const intState = {
   listNewsItem: [],
   thongTin: "",
   listHeThongRapChieu: [],
   listLogo: [],
   listDanhSachGHe: [],
+  searchResult: [],
 };
 
 export default function DCReducer(state = intState, action) {
@@ -33,7 +37,6 @@ export default function DCReducer(state = intState, action) {
         listHeThongRapChieu: [...heThongRap],
       };
     case GET_Ma_Lich_Chieu:
-      const maChieuPhim = action.payload.heThongRapChieu;
       return {
         ...state,
       };
@@ -49,6 +52,13 @@ export default function DCReducer(state = intState, action) {
         ...state,
         listDanhSachGHe: [...danhSachGhe],
       };
+    case SET_SEARCH_RESULT:
+      const searchResult = action.payload.tenPhim;
+      return {
+        ...state,
+        searchResult: searchResult,
+      };
+
     default:
       return state;
   }

@@ -1,10 +1,7 @@
-import { DatVEService, authLogin } from "../../serrvices";
-import { actShowLoading, actHiddenLoading } from "../appLoading/action";
-import { Modal, Button, Space } from "antd";
 import axios from "axios";
 import { Storage } from "../../helpers";
 import swal from "sweetalert2";
-import { PATHS } from "../../constants";
+
 const nameSpace = "DATVE";
 
 export const SET_Ghe_Dc_Chon = `${nameSpace}SET_Ghe_Dc_Chon`;

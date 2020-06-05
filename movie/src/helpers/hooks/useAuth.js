@@ -8,18 +8,18 @@ import { PATHS } from "../../constants";
 
 //khong dang nhap moi dc phep vao
 
-export default function useNotAuth() {
+export default function useAuth() {
   const history = useHistory();
   const location = useLocation();
-  const token = useSelector((state) => state.Auth.ACCESS_TOKEN);
+  const user = useSelector((state) => state.User.TTUSER);
 
   //lang nghe su thay doi cua location (router)
   //moi lan dung dan url thay doi minh phai check
 
   //dang nhap k dc phep vao
   useEffect(() => {
-    if (token) {
-      history.push(PATHS.HOMEPAGE);
+    if (!user) {
+      history.push(PATHS.LOGIN);
     }
-  }, [location, history, token]);
+  }, [location, history, user]);
 }

@@ -7,6 +7,13 @@ const DCService = {
       `
     );
   },
+  searchPhim({ query }) {
+    return api
+      .call()
+      .get(
+        `http://movie0706.cybersoft.edu.vn/api/QuanLyPhim/LayDanhSachPhim?maNhom=GP10&tenPhim=${query}`
+      );
+  },
 };
 
 export default DCService;

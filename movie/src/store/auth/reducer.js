@@ -2,7 +2,6 @@
 import { LOGIN_SUCCESS } from "./actions";
 import { LOGOUT_SUCCESS } from "./actions";
 import { Storage } from "../../helpers";
-import { actShowLoading, actHiddenLoading } from "../appLoading/action";
 
 const intState = {
   ACCESS_TOKEN: Storage.getToken() || "",

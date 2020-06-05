@@ -11,8 +11,7 @@ width: 100%;
 export const StyleBG = style.div`
 
 position: fixed;
-background-image: -webkit-linear-gradient(332deg,#3023ae,#c86dd7);
-background-image: linear-gradient(118deg,#3023ae,#c86dd7);
+
 left: 0;
 height: 100%;
 top: 0;

@@ -1,30 +1,9 @@
 import React from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { Tab, Row, Col, Nav, Button, Container } from "react-bootstrap";
-import { get } from "lodash";
-import { StyleHeaderDetailRow } from "./DanhSach.style";
-import { asyncGetLogo } from "../../store/danhSachPhimDC/actions";
-import { render } from "react-dom";
-import { useParams, Link } from "react-router-dom";
+
+import { Link } from "react-router-dom";
 import dayjs from "dayjs";
-export default function DanhSachHeThong() {
-  const thongTin = useSelector((state) => state.DC.thongTin);
-  const maHeThong = useSelector((state) => state.DC.listHeThongRapChieu);
-  console.log("thongTin", thongTin);
-  console.log("maHeThongcgv", get(maHeThong[0], "tenHeThongRap"));
-  console.log("maHeThongcgddv", get(maHeThong[1], "tenHeThongRap"));
-
-  let mangmoi = maHeThong.map((e, index) => {
-    return e.cumRapChieu;
-    let aas = mangmoi.map((e, index) => {
-      return e.maCumRap;
-    });
-
-  });
-
-
-
-
+export default function DanhSachHeThong({ maHeThong }) {
   return (
     <div className="content">
       <Tab.Container id="left-tabs-example" defaultActiveKey="first">
@@ -33,8 +12,8 @@ export default function DanhSachHeThong() {
             <Nav variant="pills" className="flex-column">
               {maHeThong.map((re) => {
                 return (
-                  <Nav.Item>
-                    <Nav.Link key={re.maHeThongRap} eventKey={re.maHeThongRap}>
+                  <Nav.Item key={re.maHeThongRap}>
+                    <Nav.Link eventKey={re.maHeThongRap}>
                       {re.tenHeThongRap}
                     </Nav.Link>
                     <hr />
@@ -50,14 +29,13 @@ export default function DanhSachHeThong() {
                   <Tab.Pane key={re.maHeThongRap} eventKey={re.maHeThongRap}>
                     {re.cumRapChieu.map((cum) => {
                       return (
-                        <div className="showtimes-content">
-                          <div key={cum.maCumRap}>
+                        <div className="showtimes-content" key={cum.maCumRap}>
+                          <div>
                             <h1>{cum.tenCumRap}</h1>
                           </div>
                           <div>
                             <Container>
                               <Row>
-
                                 {cum.lichChieuPhim.map((lich) => {
                                   const gioChieu = dayjs(
                                     new Date(lich.ngayChieuGioChieu)
@@ -66,18 +44,26 @@ export default function DanhSachHeThong() {
                                     new Date(lich.ngayChieuGioChieu)
                                   ).format("DD/MM/YYYY");
 
-
                                   return (
-                                    <div className="showtimes-item ">
+                                    <div
+                                      className="showtimes-item  "
+                                      key={lich.maLichChieu}
+                                    >
                                       <Col xs lg="2" key={lich.maLichChieu}>
-                                        <div className="date" key={lich.maLichChieu}>
-                                         <h6>{ngayChieu}</h6>
+                                        <div
+                                          className="date"
+                                          key={lich.maLichChieu}
+                                        >
+                                          <h6>{ngayChieu}</h6>
                                         </div>
                                         <div>
                                           <Link
                                             to={`/muave/${lich.maLichChieu}`}
                                           >
-                                            <Button className="time" variant="outline-primary">
+                                            <Button
+                                              className="time"
+                                              variant="outline-primary"
+                                            >
                                               {gioChieu}
                                             </Button>
                                           </Link>
@@ -100,6 +86,6 @@ export default function DanhSachHeThong() {
           </Col>
         </Row>
       </Tab.Container>
-    </div >
+    </div>
   );
 }

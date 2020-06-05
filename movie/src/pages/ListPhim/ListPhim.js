@@ -7,9 +7,7 @@ import { Col } from "antd";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { Link } from "react-router-dom";
-import { StyleListPhim, StyleListPhimUL } from "./ListPhim.style";
-import { ListPhimItems } from "../../components/ListPhimItems";
-import { PATHS } from "../../constants";
+
 export default function ListPhim() {
   const settings = {
     dots: false,
@@ -18,12 +16,10 @@ export default function ListPhim() {
     arrows: true,
     speed: 500,
     slidesToShow: 4,
-    slidesToScroll: 1
+    slidesToScroll: 1,
   };
 
   const listPhimDC = useSelector((state) => state.DC.listNewsItem);
-
-  const DatVeDetail = PATHS.DatVeDetail;
 
   return (
     <div className="container">
@@ -34,7 +30,6 @@ export default function ListPhim() {
             return (
               <Col xs={6} key={DC.maPhim}>
                 <div className="card">
-
                   <img
                     className="card-img-top"
                     src={DC.hinhAnh}
@@ -51,7 +46,9 @@ export default function ListPhim() {
                         ? DC.moTa.substr(0, 15) + "..."
                         : DC.tenPhim}
                     </h4>
-                    <Link to={`/datve/${DC.maPhim}`} className="btn-title">XEM CHI TIẾT</Link>
+                    <Link to={`/datve/${DC.maPhim}`} className="btn-title">
+                      XEM CHI TIẾT
+                    </Link>
                   </div>
                 </div>
               </Col>

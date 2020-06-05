@@ -1,41 +1,36 @@
 import React, { useEffect, useState, useCallback } from "react";
-import { useParams, useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { actSetGheDcChon } from "../../store/datVe/action";
 import { asyncGetDanhSachGhe } from "../../store/danhSachPhimDC/actions";
 import { asyncPostDatVe } from "../../store/datVe/action";
 import { StorageUser } from "../../helpers";
 
+import { useAuth } from "../../helpers";
 import Ghe from "./Ghe";
 export default function Muave() {
+  useAuth();
   const malichchieu = useParams();
   const dispatch = useDispatch();
-  console.log("maLichChieu", malichchieu);
-  const history = useHistory();
-  useEffect(() => {
-    console.log("phimId=", malichchieu);
-    dispatch(asyncGetDanhSachGhe({ malichchieu })).then((res) => {
-      console.log("res", res);
-    });
-  }, [malichchieu]);
 
+  useEffect(() => {
+    dispatch(asyncGetDanhSachGhe({ malichchieu }));
+  }, [malichchieu, dispatch]);
   const danhSachGhe = useSelector((state) => state.DC.listDanhSachGHe);
   const tri = useSelector(
     (state) => state.DC.thongTinPhimTrongRap?.maLichChieu
   );
 
   const thongTinPhim = useSelector((state) => state.DC.thongTinPhimTrongRap);
-  console.log("thongTinPhim", thongTinPhim);
 
   const gheChon = useSelector((state) => state.DatVe.listDSGhe);
   const [gheDuocChon, setGheDuocChon] = useState(null);
-  console.log("gheChon", gheChon);
 
   useEffect(() => {
     if (gheDuocChon) {
       dispatch(actSetGheDcChon(gheDuocChon));
     }
-  }, [gheDuocChon]);
+  }, [gheDuocChon, dispatch]);
   //render vo trong
   function renderDanhSachGhe() {
     return danhSachGhe?.map((ghe, i) => {
@@ -68,7 +63,7 @@ export default function Muave() {
       taiKhoanNguoiDung: StorageUser.getUser(),
     };
     dispatch(asyncPostDatVe(objectDatVe));
-  }, [gheChon, tri]);
+  }, [gheChon, tri, dispatch]);
   return (
     <>
       <div className="container">
@@ -101,6 +96,7 @@ export default function Muave() {
                   >
                     <img
                       src={thongTinPhim && thongTinPhim.hinhAnh}
+                      alt="hinhanh"
                       width={150}
                       height={250}
                     />

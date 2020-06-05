@@ -1,16 +1,15 @@
 import React, { useState, useCallback } from "react";
-import { useDispatch } from "react-redux";
+
 import "./ghe.css";
 export default function Ghe({ ghe, index, setGheDuocChon }) {
   //const { maGhe, stt, giaVe } = ghe;
 
-  const dispatch = useDispatch();
   const [dangDat, setDangDat] = useState(false);
 
   const chonGhe = useCallback(() => {
     setDangDat(!dangDat);
     setGheDuocChon(gheChon);
-  }, [dangDat]);
+  }, [dangDat, setGheDuocChon]);
 
   const gheChon = {
     maGhe: ghe.maGhe,
@@ -36,8 +35,6 @@ export default function Ghe({ ghe, index, setGheDuocChon }) {
     }
     return (
       <>
-
-
         <button
           onClick={chonGhe}
           className={classTrangThaiGhe}
@@ -45,15 +42,8 @@ export default function Ghe({ ghe, index, setGheDuocChon }) {
         >
           {tenGhe}
         </button>
-        {index % 12 === 0 ? <br /> : ""}
-
+        {index % 16 === 0 ? <br /> : ""}
       </>
-
-
-
-
-
-
     );
   }
   // chon ghe

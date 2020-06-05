@@ -1,6 +1,6 @@
-import React from "react";
-
-import { Col, Input } from "antd";
+import React, { useState } from "react";
+import { FormControl } from "react-bootstrap";
+import { Col } from "antd";
 import "./Header.css";
 import { PATHS } from "../../constants";
 import {
@@ -17,12 +17,25 @@ import { useSelector } from "react-redux";
 
 import { actLogOut } from "../../store/auth/actions";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { UserOutlined } from "@ant-design/icons";
 export default function Header() {
-  const { Search } = Input;
   const dispatch = useDispatch();
+  const history = useHistory();
   const TTUser = useSelector((state) => state.User.TTUSER);
-  console.log("TTUser", TTUser);
+  // console.log("TTUser", TTUser);
+  const [querySearch, setQuerySearch] = useState("");
+
+  //ham search
+  const handleOnchange = (e) => {
+    setQuerySearch(e.target.value);
+  };
+  //xl o form
+  const handleSubmitSearch = (e) => {
+    e.preventDefault();
+    // console.log("qwerySearch", querySearch);
+    history.push(`${PATHS.SearchPhim}?q=${querySearch}`);
+  };
 
   function handleLogOut() {
     dispatch(actLogOut());
@@ -38,14 +51,15 @@ export default function Header() {
           </StyleHeaderImg>
         </Col>
         <Col span={8}>
-          <StyleHeaderFromSearch>
+          <StyleHeaderFromSearch onSubmit={handleSubmitSearch}>
             <StyleHeaderInputGroup>
-              <Search
-                placeholder="Tìm tên phim, diễn viên..."
-                onSearch={(value) => console.log(value)}
-                size="large"
+              <FormControl
+                value={querySearch}
+                onChange={handleOnchange}
+                placeholder="Tìm tên phim..."
+                aria-label="Tìm tên phim..."
+                aria-describedby="basic-addon2"
               />
-
             </StyleHeaderInputGroup>
           </StyleHeaderFromSearch>
         </Col>
@@ -53,7 +67,7 @@ export default function Header() {
           <StyleHeaderMember>
             {TTUser ? (
               <div className="wrapper-user">
-                <Link className="user-header">
+                <Link to={PATHS} className="user-header">
                   <span>
                     <UserOutlined style={{ fontSize: "32px" }} />
                   </span>
@@ -61,17 +75,20 @@ export default function Header() {
                 </Link>
                 <div onClick={handleLogOut} className="logout">
                   LogOut
-              </div>
+                </div>
               </div>
             ) : (
-                <div className="Member">
-                  <StyleHeaderLogin to={PATHS.LOGIN} className="login"> Đăng Nhập</StyleHeaderLogin>
-                  <p>|</p>
-                  <StyleHeaderRegister to={PATHS.RESGISTER} className="register">
-                    Đăng Ký
-              </StyleHeaderRegister>
-                </div>
-              )}
+              <div className="Member">
+                <StyleHeaderLogin to={PATHS.LOGIN} className="login">
+                  {" "}
+                  Đăng Nhập
+                </StyleHeaderLogin>
+                <p>|</p>
+                <StyleHeaderRegister to={PATHS.RESGISTER} className="register">
+                  Đăng Ký
+                </StyleHeaderRegister>
+              </div>
+            )}
           </StyleHeaderMember>
         </Col>
       </StyleHeaderContent>
@@ -79,104 +96,106 @@ export default function Header() {
         <nav className="navbar navbar-expand-lg ">
           <div className="collapse navbar-collapse" id="navbarNavDropdown">
             <ul className="navbar-nav">
-              <li class="nav-item ">
-                <Link to={PATHS.HOMEPAGE} className="nav-link">TRANG CHỦ</Link>
+              <li className="nav-item ">
+                <Link to={PATHS.HOMEPAGE} className="nav-link">
+                  TRANG CHỦ
+                </Link>
               </li>
               <li className="nav-item  dropdown">
                 <a
                   className="nav-link dropdown-toggle"
-                  href="#"
+                  href="@"
                   id="navbarDropdownMenuLink"
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
                   <span>|</span> PHIM
-                    </a>
+                </a>
                 <div
                   className="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="@">
                     PHIM ĐANG CHIẾU
-                      </a>
-                  <a className="dropdown-item" href="#">
+                  </a>
+                  <a className="dropdown-item" href="@">
                     PHIM SẮP CHIẾU
-                      </a>
+                  </a>
                 </div>
               </li>
               <li className="nav-item dropdown">
                 <a
                   className="nav-link dropdown-toggle"
-                  href="#"
+                  href="@"
                   id="navbarDropdownMenuLink"
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
                   <span>|</span> GÓC ĐIỆN ẢNH
-                    </a>
+                </a>
                 <div
                   className="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="@">
                     THỂ LOẠI PHIM
-                      </a>
-                  <a className="dropdown-item" href="#">
+                  </a>
+                  <a className="dropdown-item" href="@">
                     DIỄN VIÊN
-                      </a>
-                  <a className="dropdown-item" href="#">
+                  </a>
+                  <a className="dropdown-item" href="@">
                     ĐẠO DIỄN
-                      </a>
-                  <a className="dropdown-item" href="#">
+                  </a>
+                  <a className="dropdown-item" href="@">
                     BÌNH LUẬN PHIM
-                      </a>
-                  <a className="dropdown-item" href="#">
+                  </a>
+                  <a className="dropdown-item" href="@">
                     GÓC ĐIỆN ẢNH
-                      </a>
+                  </a>
                 </div>
               </li>
               <li className="nav-item  dropdown">
                 <a
                   className="nav-link dropdown-toggle"
-                  href="#"
+                  href="@"
                   id="navbarDropdownMenuLink"
                   data-toggle="dropdown"
                   aria-haspopup="true"
                   aria-expanded="false"
                 >
                   <span>|</span> SỰ KIỆN
-                    </a>
+                </a>
                 <div
                   className="dropdown-menu"
                   aria-labelledby="navbarDropdownMenuLink"
                 >
-                  <a className="dropdown-item" href="#">
+                  <a className="dropdown-item" href="@">
                     ƯU ĐÃI
-                      </a>
-                  <a className="dropdown-item" href="#">
+                  </a>
+                  <a className="dropdown-item" href="@">
                     PHIM HAY THÁNG
-                      </a>
+                  </a>
                 </div>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="@">
                   {" "}
                   <span>|</span>RẠP/GIÁ VÉ
-                    </a>
+                </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="@">
                   {" "}
                   <span>|</span>HỖ TRỢ
-                    </a>
+                </a>
               </li>
               <li className="nav-item">
-                <a className="nav-link" href="#">
+                <a className="nav-link" href="@">
                   {" "}
                   <span>|</span>THÀNH VIÊN
-                    </a>
+                </a>
               </li>
             </ul>
           </div>
